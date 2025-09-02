@@ -4,7 +4,7 @@
 # COMMON VARIABLES AND CUSTOM HELPERS
 #=================================================
 
-composer_version="2.8.3"
+#REMOVEME? composer_version="2.8.3"
 
 _ynh_exec_with_drush_php() {
     ynh_hide_warnings ynh_exec_as_app \
