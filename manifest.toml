@@ -19,7 +19,7 @@ code = "https://github.com/drupal/drupal"
 cpe = "cpe:2.3:a:drupal:drupal"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
