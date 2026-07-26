@@ -24,7 +24,6 @@ ynh_script_progression "Installing Composer..."
 
 ynh_config_add --template="composer.json" --destination="$install_dir/composer.json"
 
-#REMOVEME? ynh_composer_install
 ynh_composer_exec install --no-dev
 
 #=================================================
