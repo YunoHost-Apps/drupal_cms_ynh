@@ -55,9 +55,11 @@ fi
 #=================================================
 ynh_script_progression "Upgrading Composer..."
 
-ynh_config_add --template="composer.json" --destination="$install_dir/composer.json"
+ynh_backup_if_checksum_is_different "$install_dir/composer.json"
 
-chmod +w $install_dir/web/sites/default/
+#ynh_config_add --template="composer.json" --destination="$install_dir/composer.json"
+
+#chmod +w $install_dir/web/sites/default/
 ynh_composer_exec update --no-dev
 
 #=================================================
