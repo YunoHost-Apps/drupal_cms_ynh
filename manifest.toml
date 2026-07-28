@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+#:schema https://raw.githubusercontent.com/YunoHost/apps/main/schemas/manifest.v2.schema.json
 
 packaging_format = 2
 
@@ -7,7 +7,7 @@ name = "Drupal"
 description.en = "Content management framework"
 description.fr = "Système de gestion de contenu"
 
-version = "2024.12.19~ynh1"
+version = "2026.07.27~ynh1"
 
 maintainers = ["yalh76"]
 
@@ -19,7 +19,7 @@ code = "https://github.com/drupal/drupal"
 cpe = "cpe:2.3:a:drupal:drupal"
 
 [integration]
-yunohost = ">= 11.2.30"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -76,19 +76,19 @@ ram.runtime = "50M"
 
     [resources.apt]
     packages = [
-        "php8.3-fpm",
-        "php8.3-cli",
-        "php8.3-gd",
-        "php8.3-mysql",
-        "php8.3-xml",
-        "php8.3-ldap",
-        "php8.3-mbstring",
-        "php8.3-uploadprogress",
-        "php8.3-apcu",
-        "php8.3-json",
-        "php8.3-simplexml",
-        "php8.3-curl",
-        "php8.3-readline",
+        "php8.4-fpm",
+        "php8.4-cli",
+        "php8.4-gd",
+        "php8.4-mysql",
+        "php8.4-xml",
+        "php8.4-ldap",
+        "php8.4-mbstring",
+        "php8.4-uploadprogress",
+        "php8.4-apcu",
+        "php8.4-json",
+        "php8.4-simplexml",
+        "php8.4-curl",
+        "php8.4-readline",
         "curl",
         "libzip-dev",
         "mariadb-server",
@@ -96,3 +96,6 @@ ram.runtime = "50M"
 
     [resources.database]
     type = "mysql"
+
+    [resources.composer]
+    version = "2.8.3"
