@@ -73,7 +73,14 @@ cat >> "$install_dir/web/sites/default/settings.php" <<EOF
   'username' => '$db_user',
   'password' => '$db_pwd',
   'host' => 'localhost',
+  'port' => '3306',
   'prefix' => '',
+  // Since Drupal 9 the database drivers live inside modules. Without both
+  // 'namespace' and 'autoload' the connection cannot be resolved at all, and
+  // the installer silently falls back to its database form (offering sqlite,
+  // which is too old on Debian for Drupal 11).
+  'namespace' => 'Drupal\\\\mysql\\\\Driver\\\\Database\\\\mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 ];
 \$settings['hash_salt'] = '$hash_salt';
 \$settings['trusted_host_patterns'] = ['^${domain//./\\.}\$'];
@@ -87,6 +94,15 @@ chown $app:www-data "$install_dir/web/sites/default/settings.php"
 # until the wizard has been completed. See ADMIN.md for how to lock it down.
 chmod 0640 "$install_dir/web/sites/default/settings.php"
 chmod 0750 "$install_dir/web/sites/default"
+
+# Fail loudly here rather than handing the wizard a settings.php it cannot
+# use: if the connection is broken the installer just re-asks for database
+# credentials and defaults to sqlite.
+pushd "$install_dir"
+	if ! _ynh_exec_with_drush_php drush "@$app" sql:query "SELECT 1;" >/dev/null; then
+		ynh_die "Could not connect to the database using the credentials written to settings.php"
+	fi
+popd
 
 ynh_store_file_checksum "$install_dir/web/sites/default/settings.php"
 
