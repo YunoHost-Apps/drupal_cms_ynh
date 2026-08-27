@@ -73,6 +73,8 @@ ynh_store_file_checksum "$install_dir/web/sites/default/settings.php"
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
 
+_ynh_setup_webroot
+
 ynh_config_add_phpfpm
 
 ynh_config_add_nginx

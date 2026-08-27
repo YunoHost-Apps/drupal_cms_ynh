@@ -13,6 +13,8 @@ source /usr/share/yunohost/helpers
 ynh_script_progression "Updating NGINX web server configuration..."
 
 # this will most likely adjust NGINX config correctly
+_ynh_setup_webroot "$new_path"
+
 ynh_config_change_url_nginx
 
 #=================================================

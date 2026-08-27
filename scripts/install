@@ -119,6 +119,8 @@ ynh_store_file_checksum "$install_dir/web/sites/default/settings.php"
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
+_ynh_setup_webroot
+
 # Create a PHP-FPM config (with conf/extra_php-fpm.conf being appended to it)
 ynh_config_add_phpfpm
 
