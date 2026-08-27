@@ -57,6 +57,13 @@ chmod 0444 "$install_dir/private/.htaccess"
 
 install -d -m 775 -o $app -g www-data "$install_dir/web/sites/default/files"
 
+# Drupal's installer only skips its settings form when settings.php is
+# complete, and "complete" means a config sync directory as well as a working
+# database. With the database seeded but config_sync_directory missing, the
+# installer routes to the database form with no error shown at all. Keep the
+# directory outside the web root, as upstream drupal/cms does.
+install -d -m 750 -o $app -g $app "$install_dir/config/sync"
+
 hash_salt=$(ynh_string_random --length=74)
 ynh_app_setting_set --key=hash_salt --value="$hash_salt"
 
@@ -86,6 +93,7 @@ cat >> "$install_dir/web/sites/default/settings.php" <<EOF
 \$settings['trusted_host_patterns'] = ['^${domain//./\\.}\$'];
 \$settings['file_temp_path'] = '../tmp';
 \$settings['file_private_path'] = '../private';
+\$settings['config_sync_directory'] = '../config/sync';
 EOF
 
 chown $app:www-data "$install_dir/web/sites/default/settings.php"
