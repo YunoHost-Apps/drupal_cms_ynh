@@ -21,7 +21,8 @@ _ynh_setup_webroot() {
 
     if [ "$app_path" = "/" ]; then
         # Installed at the domain root: no symlink needed.
-        ynh_app_setting_set --key=webroot --value="$install_dir/web"
+        webroot="$install_dir/web"
+        ynh_app_setting_set --key=webroot --value="$webroot"
         return
     fi
 
@@ -30,5 +31,9 @@ _ynh_setup_webroot() {
     ln -sfn "$install_dir/web" "$install_dir/webroot$app_path"
     chown -h "$app:www-data" "$install_dir/webroot$app_path"
 
-    ynh_app_setting_set --key=webroot --value="$install_dir/webroot"
+    # Assign the shell variable as well, not just the setting: ynh_config_add
+    # substitutes __WEBROOT__ from the running shell's variables, and a setting
+    # written mid-script is not exported back into it.
+    webroot="$install_dir/webroot"
+    ynh_app_setting_set --key=webroot --value="$webroot"
 }
