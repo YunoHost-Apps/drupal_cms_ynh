@@ -2,20 +2,20 @@
 
 packaging_format = 2
 
-id = "drupal"
-name = "Drupal"
-description.en = "Content management framework"
-description.fr = "Système de gestion de contenu"
+id = "drupal_cms"
+name = "Drupal CMS"
+description.en = "Ready-to-use content management platform built on Drupal core"
+description.fr = "Plateforme de gestion de contenu prête à l'emploi basée sur Drupal core"
 
-version = "2026.07.27~ynh1"
+version = "2.1.3~ynh1"
 
 maintainers = ["yalh76"]
 
 [upstream]
 license = "GPL-2.0-or-later"
-website = "https://www.drupal.org"
-admindoc = "https://www.drupal.org/docs/9"
-code = "https://github.com/drupal/drupal"
+website = "https://new.drupal.org/drupal-cms"
+admindoc = "https://new.drupal.org/docs/drupal-cms"
+code = "https://git.drupalcode.org/project/cms"
 cpe = "cpe:2.3:a:drupal:drupal"
 
 [integration]
@@ -28,9 +28,9 @@ ldap = false
 
 sso = false
 
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+disk = "1500M"
+ram.build = "1024M"
+ram.runtime = "256M"
 
 [install]
     [install.domain]
@@ -38,7 +38,7 @@ ram.runtime = "50M"
 
     [install.path]
     type = "path"
-    default = "/drupal"
+    default = "/drupal-cms"
 
     [install.init_main_permission]
     type = "group"
@@ -57,12 +57,6 @@ ram.runtime = "50M"
     [install.password]
     type = "password"
 
-    [install.install_profil]
-    ask.en = "Choose the Drupal install profile to use"
-    ask.fr = "Choisissez le profile d'installation de Drupal"
-    type = "select"
-    choices = ["minimal", "standard"]
-    default = "standard"
 
 [resources]
 
@@ -84,6 +78,8 @@ ram.runtime = "50M"
         "php8.4-ldap",
         "php8.4-mbstring",
         "php8.4-uploadprogress",
+        "php8.4-zip",
+        "php8.4-opcache",
         "php8.4-apcu",
         "php8.4-json",
         "php8.4-simplexml",
@@ -98,4 +94,4 @@ ram.runtime = "50M"
     type = "mysql"
 
     [resources.composer]
-    version = "2.8.3"
+    version = "2.9.8"
