@@ -28,7 +28,14 @@ fi
 ynh_script_progression "Upgrading Composer dependencies..."
 
 ynh_backup_if_checksum_is_different "$install_dir/composer.json"
-ynh_config_add --template="composer.json" --destination="$install_dir/composer.json"
+
+# Deliberately do NOT re-render composer.json from the template here. Modules
+# added on the site with "composer require" live in this file, and overwriting
+# it would silently uninstall them on every upgrade. Drupal CMS itself still
+# moves forward through "composer update" within the ^2 constraints below.
+if [ ! -e "$install_dir/composer.json" ]; then
+	ynh_config_add --template="composer.json" --destination="$install_dir/composer.json"
+fi
 
 chmod +w "$install_dir/web/sites/default/"
 
