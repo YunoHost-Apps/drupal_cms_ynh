@@ -5,28 +5,20 @@ It shall NOT be edited by hand.
 
 <h1>
   <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/drupal.png" width="32px" alt="Logo of Drupal">
-  Drupal, packaged for YunoHost
+  Drupal CMS 2.0, packaged for YunoHost
 </h1>
 
 Content management framework
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://www.drupal.org)
-[![Version: 2026.07.27~ynh1](https://img.shields.io/badge/Version-2026.07.27~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/drupal/)
-
-<div align="center">
-<a href="https://apps.yunohost.org/app/drupal"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
-<a href="https://github.com/YunoHost-Apps/drupal_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
-</div>
 
 
 ## Screenshots
-![Screenshot of Drupal](./doc/screenshots/screenshot.png)
+![Screenshot of Drupal CMS 2.0](./doc/screenshots/screenshot.png)
 
 ## 📦 Developer info
 
-[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/drupal)](https://ci-apps.yunohost.org/ci/apps/drupal/)
-
-🛠️ Upstream Drupal repository: <https://github.com/drupal/drupal>
+🛠️ Upstream Drupal repository: <https://github.com/drupal/cms-launcher>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal_ynh/tree/testing).
 

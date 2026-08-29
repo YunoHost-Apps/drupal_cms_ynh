@@ -11,6 +11,37 @@ _ynh_exec_with_drush_php() {
         "$@"
 }
 
+# Give nginx (www-data) read access to the tree it serves static files from.
+#
+# php-fpm runs as $app and can always read install_dir, so a missing grant here
+# does not stop pages from rendering: PHP keeps working while every CSS, JS and
+# image URL 404s, because nginx's try_files cannot stat the file and falls
+# through to index.php. The whole chain has to be traversable, not just the
+# webroot symlink directory.
+_ynh_grant_webserver_access() {
+    # install_dir itself is $app:$app 0750 by default, which blocks www-data at
+    # the very first hop.
+    chgrp www-data "$install_dir"
+    chmod g+x "$install_dir"
+
+    chgrp -R www-data "$install_dir/web"
+    chmod -R g+rX "$install_dir/web"
+
+    # Files Drupal writes at runtime (uploads, image derivatives) are created by
+    # php-fpm as $app. setgid on the directories makes them inherit the www-data
+    # group so nginx can serve them without re-running this helper.
+    if [ -d "$install_dir/web/sites/default/files" ]; then
+        chmod -R g+rwX "$install_dir/web/sites/default/files"
+        find "$install_dir/web/sites/default/files" -type d -exec chmod g+s {} +
+    fi
+
+    # The database credentials do not need to be readable by nginx.
+    if [ -e "$install_dir/web/sites/default/settings.php" ]; then
+        chgrp "$app" "$install_dir/web/sites/default/settings.php"
+        chmod 640 "$install_dir/web/sites/default/settings.php"
+    fi
+}
+
 # Build the symlink tree that conf/nginx.conf points "root" at.
 #
 # nginx cannot reliably resolve try_files against "alias", so instead of
@@ -23,6 +54,7 @@ _ynh_setup_webroot() {
         # Installed at the domain root: no symlink needed.
         webroot="$install_dir/web"
         ynh_app_setting_set --key=webroot --value="$webroot"
+        _ynh_grant_webserver_access
         return
     fi
 
@@ -36,4 +68,6 @@ _ynh_setup_webroot() {
     # written mid-script is not exported back into it.
     webroot="$install_dir/webroot"
     ynh_app_setting_set --key=webroot --value="$webroot"
+
+    _ynh_grant_webserver_access
 }
