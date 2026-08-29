@@ -15,6 +15,11 @@ ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
 
+# Rebuild the webroot symlink and re-grant nginx access to the tree. The archive
+# may not carry the symlink or the www-data group intact, and the restored
+# nginx config below still points "root" at it.
+_ynh_setup_webroot
+
 #=================================================
 # RESTORE THE MYSQL DATABASE
 #=================================================
