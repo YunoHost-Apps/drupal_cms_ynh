@@ -4,31 +4,39 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/drupal.png" width="32px" alt="Logo of Drupal">
-  Drupal CMS 2.0, packaged for YunoHost
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/drupal_cms.png" width="32px" alt="Logo of Drupal CMS">
+  Drupal CMS, packaged for YunoHost
 </h1>
 
-Content management framework
+Ready-to-use content management platform built on Drupal core
 
-[![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://www.drupal.org)
+[![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://new.drupal.org/drupal-cms)
+[![Version: 2.1.3~ynh8](https://img.shields.io/badge/Version-2.1.3~ynh8-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/drupal_cms/)
+
+<div align="center">
+<a href="https://apps.yunohost.org/app/drupal_cms"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
+<a href="https://github.com/YunoHost-Apps/drupal_cms_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
+</div>
 
 
 ## Screenshots
-![Screenshot of Drupal CMS 2.0](./doc/screenshots/screenshot.png)
+![Screenshot of Drupal CMS](./doc/screenshots/screenshot.png)
 
 ## 📦 Developer info
 
-🛠️ Upstream Drupal repository: <https://github.com/drupal/cms-launcher>
+[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/drupal_cms)](https://ci-apps.yunohost.org/ci/apps/drupal_cms/)
 
-Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal_ynh/tree/testing).
+🛠️ Upstream Drupal CMS repository: <https://git.drupalcode.org/project/cms>
+
+Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing).
 
 The `testing` branch can be tested using:
 ```
 # fresh install:
-sudo yunohost app install https://github.com/YunoHost-Apps/drupal_ynh/tree/testing
+sudo yunohost app install https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing
 
 # upgrade an existing install:
-sudo yunohost app upgrade drupal -u https://github.com/YunoHost-Apps/drupal_ynh/tree/testing
+sudo yunohost app upgrade drupal_cms -u https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing
 ```
 
 ### 📚 App packaging documentation
