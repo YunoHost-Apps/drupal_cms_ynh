@@ -1,21 +1,19 @@
 The app install dir is `__INSTALL_DIR__`.
 
-## First run: the setup wizard
+## Admin account
 
-This package installs the Drupal CMS codebase and seeds `settings.php` with the
-database credentials, but it does **not** install the site. Open
-`https://__DOMAIN____PATH__` in a browser to run the Drupal CMS setup wizard,
-which asks for a site name, a site template (Starter, Byte, Haven) and the admin
-account. See <https://project.pages.drupalcode.org/drupal_cms/get-started/setup/>.
-
-Until the wizard has been completed the site is not usable and the hourly cron
-job will do nothing.
-
-Once the wizard has finished, lock the settings directory back down:
+The site is installed during `yunohost app install`, with the starter site
+template (`drupal_cms_starter`) applied. The admin account is the YunoHost user
+picked at install time; its generated password is stored as an app setting:
 
 ```bash
-sudo chmod 0550 __INSTALL_DIR__/web/sites/default
-sudo chmod 0440 __INSTALL_DIR__/web/sites/default/settings.php
+sudo yunohost app setting __APP__ admin_password
+```
+
+Change it with `drush user:password`, or get a one-time login link with:
+
+```bash
+sudo -u __APP__ env PATH=__INSTALL_DIR__/vendor/bin:$PATH DRUSH_PHP=/usr/bin/php__PHP_VERSION__ drush @__APP__ user:login
 ```
 
 Drupal CMS is installed here with the web root at `__INSTALL_DIR__/web`, Composer
@@ -30,8 +28,8 @@ sudo -u __APP__ env PATH=__INSTALL_DIR__/vendor/bin:$PATH DRUSH_PHP=/usr/bin/php
 
 ## Applying another recipe
 
-The site template is chosen in the setup wizard. The other recipes shipped by
-Drupal CMS are already on disk and can be applied afterwards, for example:
+The starter site template is applied at install time. The other recipes shipped
+by Drupal CMS are already on disk and can be applied afterwards, for example:
 
 ```bash
 sudo -u __APP__ env PATH=__INSTALL_DIR__/vendor/bin:$PATH DRUSH_PHP=/usr/bin/php__PHP_VERSION__ drush @__APP__ recipe __INSTALL_DIR__/recipes/drupal_cms_seo_tools
