@@ -16,11 +16,7 @@ ynh_app_setting_set_default --key=php_upload_max_filesize --value=512M
 ynh_app_setting_set_default --key=php_post_max_size --value=512M
 ynh_app_setting_set_default --key=php_memory_limit --value=512M
 
-if ! grep -q "\$settings['trusted_host_patterns'] = ['^$domain\$'];" "$install_dir/web/sites/default/settings.php"; then
-	echo "\$settings['trusted_host_patterns'] = ['^$domain\$'];" >> "$install_dir/web/sites/default/settings.php"
-	ynh_delete_file_checksum "$install_dir/web/sites/default/settings.php"
-	ynh_store_file_checksum "$install_dir/web/sites/default/settings.php"
-fi
+_ynh_set_trusted_host "$domain"
 
 #=================================================
 # UPGRADE COMPOSER

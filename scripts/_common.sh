@@ -71,3 +71,27 @@ _ynh_setup_webroot() {
 
     _ynh_grant_webserver_access
 }
+
+# Point settings.php's trusted_host_patterns at $1 (defaults to $domain).
+#
+# The pattern is a regex, so the dots are escaped: matching or replacing the
+# bare domain string in this file does not work. Rewrite the whole line, and
+# append it if a settings.php from an older version does not have one.
+_ynh_set_trusted_host() {
+    local host="${1:-$domain}"
+    local settings="$install_dir/web/sites/default/settings.php"
+    local escaped="${host//./\\.}"
+    local line="\$settings['trusted_host_patterns'] = ['^${escaped}\$'];"
+
+    chmod u+w "$settings"
+
+    if grep -q "^\$settings\['trusted_host_patterns'\]" "$settings"; then
+        sed -i "s|^\$settings\['trusted_host_patterns'\].*|${line}|" "$settings"
+    else
+        echo "$line" >> "$settings"
+    fi
+
+    chmod 0640 "$settings"
+    ynh_delete_file_checksum "$settings"
+    ynh_store_file_checksum "$settings"
+}

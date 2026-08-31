@@ -9,7 +9,7 @@ description.fr = "Plateforme de gestion de contenu prête à l'emploi basée sur
 
 version = "2.1.3~ynh8"
 
-maintainers = ["yalh76"]
+maintainers = ["stepcellwolf"]
 
 [upstream]
 license = "GPL-2.0-or-later"
