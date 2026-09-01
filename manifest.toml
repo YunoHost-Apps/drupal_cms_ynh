@@ -2,7 +2,7 @@
 
 packaging_format = 2
 
-id = "drupal-cms"
+id = "drupal_cms"
 name = "Drupal CMS"
 description.en = "Ready-to-use content management platform built on Drupal core"
 description.fr = "Plateforme de gestion de contenu prête à l'emploi basée sur Drupal core"
@@ -33,6 +33,7 @@ ram.build = "1024M"
 ram.runtime = "256M"
 
 [install]
+
     [install.domain]
     type = "domain"
 
@@ -47,8 +48,6 @@ ram.runtime = "256M"
 
     [install.admin]
     type = "user"
-
-
 
 [resources]
 
