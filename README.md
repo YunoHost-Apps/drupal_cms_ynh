@@ -4,18 +4,18 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/drupal_cms.png" width="32px" alt="Logo of Drupal CMS">
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/drupal-cms.png" width="32px" alt="Logo of Drupal CMS">
   Drupal CMS, packaged for YunoHost
 </h1>
 
 Ready-to-use content management platform built on Drupal core
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://new.drupal.org/drupal-cms)
-[![Version: 2.1.3~ynh8](https://img.shields.io/badge/Version-2.1.3~ynh8-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/drupal_cms/)
+[![Version: 2.1.3~ynh8](https://img.shields.io/badge/Version-2.1.3~ynh8-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/drupal-cms/)
 
 <div align="center">
-<a href="https://apps.yunohost.org/app/drupal_cms"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
-<a href="https://github.com/YunoHost-Apps/drupal_cms_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
+<a href="https://apps.yunohost.org/app/drupal-cms"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
+<a href="https://github.com/YunoHost-Apps/drupal-cms_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
 
@@ -24,19 +24,19 @@ Ready-to-use content management platform built on Drupal core
 
 ## 📦 Developer info
 
-[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/drupal_cms)](https://ci-apps.yunohost.org/ci/apps/drupal_cms/)
+[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/drupal-cms)](https://ci-apps.yunohost.org/ci/apps/drupal-cms/)
 
 🛠️ Upstream Drupal CMS repository: <https://git.drupalcode.org/project/cms>
 
-Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing).
+Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal-cms_ynh/tree/testing).
 
 The `testing` branch can be tested using:
 ```
 # fresh install:
-sudo yunohost app install https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing
+sudo yunohost app install https://github.com/YunoHost-Apps/drupal-cms_ynh/tree/testing
 
 # upgrade an existing install:
-sudo yunohost app upgrade drupal_cms -u https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing
+sudo yunohost app upgrade drupal-cms -u https://github.com/YunoHost-Apps/drupal-cms_ynh/tree/testing
 ```
 
 ### 📚 App packaging documentation
