@@ -26,7 +26,7 @@ Ready-to-use content management platform built on Drupal core
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/drupal_cms)](https://ci-apps.yunohost.org/ci/apps/drupal_cms/)
 
-🛠️ Upstream Drupal CMS repository: <https://git.drupalcode.org/project/cms>
+🛠️ Upstream Drupal CMS repository: <https://git.drupalcode.org/project/drupal_cms>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/drupal_cms_ynh/tree/testing).
 
