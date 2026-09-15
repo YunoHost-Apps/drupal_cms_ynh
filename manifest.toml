@@ -7,7 +7,7 @@ name = "Drupal CMS"
 description.en = "Ready-to-use content management platform built on Drupal core"
 description.fr = "Plateforme de gestion de contenu prête à l'emploi basée sur Drupal core"
 
-version = "2.1.4~ynh1"
+version = "2.1.5~ynh1"
 
 maintainers = ["stepcellwolf"]
 
@@ -54,8 +54,8 @@ ram.runtime = "256M"
 
     [resources.sources.main]
     prefetch = false
-    url = "https://git.drupalcode.org/project/drupal_cms/-/archive/2.1.4/drupal_cms-2.1.4.tar.bz2"
-    sha256 = "1dda5a81446bc02ef195257ac03d75eed9952777f14cf15d7fbc1f9dc9aaf4f2"
+    url = "https://git.drupalcode.org/project/drupal_cms/-/archive/2.1.5/drupal_cms-2.1.5.tar.bz2"
+    sha256 = "6b489bc335510634db99455dc9b360b357ada4c47553c7ed43945ecb19c92aa5"
 
     autoupdate.strategy = "latest_gitlab_tag"
 
@@ -73,6 +73,7 @@ ram.runtime = "256M"
         "php8.4-cli",
         "php8.4-gd",
         "php8.4-mysql",
+        "php8.4-pgsql",
         "php8.4-xml",
         "php8.4-ldap",
         "php8.4-mbstring",
@@ -80,7 +81,6 @@ ram.runtime = "256M"
         "php8.4-zip",
         "php8.4-opcache",
         "php8.4-apcu",
-        "php8.4-json",
         "php8.4-simplexml",
         "php8.4-curl",
         "php8.4-readline",
