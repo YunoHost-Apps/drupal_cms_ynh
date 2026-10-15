@@ -7,7 +7,7 @@ name = "Drupal CMS"
 description.en = "Ready-to-use content management platform built on Drupal core"
 description.fr = "Plateforme de gestion de contenu prête à l'emploi basée sur Drupal core"
 
-version = "2.2.4~ynh1"
+version = "2.2.5~ynh1"
 
 maintainers = ["stepcellwolf"]
 
@@ -54,8 +54,8 @@ ram.runtime = "256M"
 
     [resources.sources.main]
     prefetch = false
-    url = "https://git.drupalcode.org/project/drupal_cms/-/archive/2.2.4/drupal_cms-2.2.4.tar.bz2"
-    sha256 = "418fa12aeecfcec93bacf3a8b2df667a643fca0602e4c7a8468e27fdbc8cfdcd"
+    url = "https://git.drupalcode.org/project/drupal_cms/-/archive/2.2.5/drupal_cms-2.2.5.tar.bz2"
+    sha256 = "88bf27d79cdcca647b651ed58a6c799a30baae2be1159157d3bd62175d01c8f8"
 
     autoupdate.strategy = "latest_gitlab_tag"
 
